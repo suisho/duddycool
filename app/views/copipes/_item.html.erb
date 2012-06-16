@@ -1,10 +1,13 @@
-<p>
-  <b>
-  <%= copipe.title %>
-  </b>
-
-  <%= copipe.user_id %>
-</p>
-<div class="well">
-  <%= format_article(copipe.body) %>
+<div class="copipe">
+  <div class="title">
+    <%= copipe.title %>
+  </div>
+  <% if copipe.anonymous? %>
+    <%= t(:anonymous) %>
+  <% else %>
+    <%= copipe.user_id%>
+  <% end %>
+  <div class="well">
+    <%= format_article(copipe.body) %>
+  </div>
 </div>
