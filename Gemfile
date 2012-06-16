@@ -19,6 +19,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+group :test do
+  gem 'shoulda'
+end
 
 gem 'jquery-rails'
 
@@ -35,4 +38,6 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
+gem "less-rails", "~> 2.2.3"
+gem "twitter-bootstrap-rails"
