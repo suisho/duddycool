@@ -36,3 +36,4 @@ doc/
 
 ticket.txt
 *.komodo*
+ignore/*
