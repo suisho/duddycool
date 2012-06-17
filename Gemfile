@@ -44,3 +44,5 @@ end
 
 gem "less-rails", "~> 2.2.3"
 gem "twitter-bootstrap-rails"
+
+gem "oauth-plugin", ">= 0.4.0.pre1"
