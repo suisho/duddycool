@@ -3,8 +3,8 @@ class CopipesController < ApplicationController
   # GET /copipes
   # GET /copipes.json
   def index
-    @copipes = Copipe.all
-    
+    @copipes = Copipe.find(:all, :order=> 'id desc')
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @copipes }
