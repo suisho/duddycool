@@ -37,5 +37,3 @@ doc/
 ticket.txt
 *.komodo*
 ignore/*
-
-Gemfile.lock
