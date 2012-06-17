@@ -5,7 +5,7 @@
       &nbsp;
     </div>
     <div class="span4 links">
-      <a href="/copipe/txt/">txt</a>
+      <a href="/copipe/txt/<%= copipe.id %>">txt</a>
       <!--a href="/copipe/rep/">twitter返信</a-->
     </div>
   </div>
@@ -15,7 +15,7 @@
   <div class="row">
     <div class="tags span6">
       <% copipe.tags.each do |tag| %>
-        <%= link_to tag.name ,"/tag/"+u(tag.name) %>
+        <%= link_to tag.name ,"/tags/"+u(tag.name) %>
       <% end %>
     </div>
     <div class="author span4">

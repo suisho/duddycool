@@ -62,4 +62,6 @@ Duddycool::Application.routes.draw do
   match 'login' => 'login#index'
   match 'login/oauth' => 'login#oauth'
   match 'login/oauth_callback' => 'login#oauth_callback'
+  match 'tags/:name' => 'tags#search'
+  match 'copipes/txt/:id' => 'copipes#txt'
 end
