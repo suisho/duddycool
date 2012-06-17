@@ -15,11 +15,17 @@ class CopipesController < ApplicationController
   # GET /copipes/1.json
   def show
     @copipe = Copipe.find(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @copipe }
     end
+  end
+
+  
+  def txt
+    @copipe = Copipe.find(params[:id])
+    render :layout => "empty"
   end
 
   # GET /copipes/new
@@ -32,7 +38,6 @@ class CopipesController < ApplicationController
       format.json { render json: @copipe }
     end
   end
-
   # GET /copipes/1/edit
   #def edit
     #@copipe = Copipe.find(params[:id])
