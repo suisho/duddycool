@@ -58,4 +58,8 @@ Duddycool::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'copipes#index'
+
+  match 'login' => 'login#index'
+  match 'login/oauth' => 'login#oauth'
+  match 'login/oauth_callback' => 'login#oauth_callback'
 end
