@@ -1,0 +1,11 @@
+<h2>
+  <%= @tag.name %> <small>タグのついたコピペ・AA</small>
+</h2>
+<% if @tag.copipes %>
+  <% @tag.copipes.each do |copipe| %>
+    <%= render :partial => "copipes/item", :locals => {:copipe => copipe} %>
+  <% end %>
+<% else %>
+  <%= @tag.name %>　のついたコピペ・AAはまだ投稿されていません。<br>
+  よろしければ　<%= link_to '投稿', new_copipe_path , :tags => @tag.name%> していってください
+<% end %>
