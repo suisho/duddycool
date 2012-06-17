@@ -83,6 +83,7 @@ GEM
       httpauth (~> 0.1)
       multi_json (~> 1.0)
       rack (~> 1.4)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -150,6 +151,7 @@ DEPENDENCIES
   jquery-rails
   less-rails (~> 2.2.3)
   oauth-plugin (>= 0.4.0.pre1)
+  pg
   rails (= 3.2.5)
   sass-rails (~> 3.2.3)
   shoulda
