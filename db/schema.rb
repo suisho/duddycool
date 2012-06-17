@@ -11,12 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616060128) do
+ActiveRecord::Schema.define(:version => 20120617164220) do
+
+  create_table "copipe_tags", :force => true do |t|
+    t.integer  "copipe_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "copipes", :force => true do |t|
     t.string   "title",      :null => false
     t.text     "body",       :null => false
     t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "twitter_id"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
