@@ -37,3 +37,4 @@ doc/
 ticket.txt
 *.komodo*
 ignore/*
+public/assets/*
