@@ -1,4 +1,8 @@
-<h1>一覧</h1>
+<% if notice %>
+  <div class="alert alert-success">
+    <%= t :notice %>
+  </div>
+<% end %>
 
 <% @copipes.each do |copipe| %>
   <%= render :partial => "item", :locals => {:copipe => copipe} %>
