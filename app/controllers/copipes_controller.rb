@@ -1,4 +1,4 @@
-
+# encoding: utf-8
 class CopipesController < ApplicationController
   # GET /copipes
   # GET /copipes.json
@@ -15,7 +15,7 @@ class CopipesController < ApplicationController
   # GET /copipes/1.json
   def show
     @copipe = Copipe.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @copipe }
@@ -34,9 +34,9 @@ class CopipesController < ApplicationController
   end
 
   # GET /copipes/1/edit
-  def edit
-    @copipe = Copipe.find(params[:id])
-  end
+  #def edit
+    #@copipe = Copipe.find(params[:id])
+  #end
 
   # POST /copipes
   # POST /copipes.json
@@ -45,7 +45,21 @@ class CopipesController < ApplicationController
     @copipe.user_id = 0
     respond_to do |format|
       if @copipe.save
-        format.html { redirect_to @copipe, notice: 'Article was successfully created.' }
+        # タグ投稿
+        tags = params[:tags]
+        tags = tags.split(/[\s|　]/)
+        tags = tags.uniq
+        tags.each{|tag_name|
+          tag = Tag.find_or_create_by_name(tag_name)
+          CopipeTag.create({:copipe_id => @copipe.id, :tag_id => tag.id})
+        }
+=begin
+        format.html {
+          redirect_to @copipe,
+          notice: 'Article was successfully created.'
+        }
+=end
+        format.html { redirect_to "/", notice: t(:create_complete)}
         format.json { render json: @copipe, status: :created, location: @copipe }
       else
         format.html { render action: "new" }
@@ -53,7 +67,7 @@ class CopipesController < ApplicationController
       end
     end
   end
-
+=begin
   # PUT /copipes/1
   # PUT /copipes/1.json
   def update
@@ -71,6 +85,7 @@ class CopipesController < ApplicationController
 
   # DELETE /copipes/1
   # DELETE /copipes/1.json
+
   def destroy
     @copipe = Copipe.find(params[:id])
     @copipe.destroy
@@ -80,4 +95,5 @@ class CopipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 end
