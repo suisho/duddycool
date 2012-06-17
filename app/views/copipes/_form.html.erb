@@ -11,19 +11,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><%= f.text_field :title %>
+    タイトル <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <div>本文</div>
     <div class="article_body">
       <%= f.text_area :body %>
     </div>
   </div>
-  <!-- <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>-->
+  <div class="field">
+    タグ
+    <input name="tags" type="text" />
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

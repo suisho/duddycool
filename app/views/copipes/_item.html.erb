@@ -1,13 +1,30 @@
 <div class="copipe">
-  <div class="title">
-    <%= copipe.title %>
+  <div class="row">
+    <div class="title span6">
+      <%= copipe.title %>
+      &nbsp;
+    </div>
+    <div class="span4 links">
+      <a href="/copipe/txt/">txt</a>
+      <!--a href="/copipe/rep/">twitter返信</a-->
+    </div>
   </div>
-  <% if copipe.anonymous? %>
-    <%= t(:anonymous) %>
-  <% else %>
-    <%= copipe.user_id%>
-  <% end %>
   <div class="well">
     <%= format_article(copipe.body) %>
+  </div>
+  <div class="row">
+    <div class="tags span6">
+      <% copipe.tags.each do |tag| %>
+        <%= link_to tag.name ,"/tag/"+u(tag.name) %>
+      <% end %>
+    </div>
+    <div class="author span4">
+      posted by:
+      <% if copipe.anonymous? %>
+        <%= t(:anonymous) %>
+      <% else %>
+        <%= copipe.user_id%>
+      <% end %>
+    </div>
   </div>
 </div>
