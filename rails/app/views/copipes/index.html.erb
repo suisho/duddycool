@@ -1,0 +1,13 @@
+<% if notice %>
+  <div class="alert alert-success">
+    <%= t :notice %>
+  </div>
+<% end %>
+
+<% @copipes.each do |copipe| %>
+  <%= render :partial => "item", :locals => {:copipe => copipe} %>
+<% end %>
+
+<br />
+
+<%= link_to 'New copipe', new_copipe_path %>
