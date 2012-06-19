@@ -1,16 +1,16 @@
 *.gem
 *.rbc
 .bundle
-.config
+*.config
 coverage
 InstalledFiles
 lib/bundler/man
 pkg
 rdoc
 spec/reports
-test/tmp
+/test/tmp
 test/version_tmp
-tmp
+/tmp
 
 # YARD artifacts
 .yardoc
@@ -28,13 +28,14 @@ doc/
 /.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
+rails/db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+rails/log/*.log
+rails/tmp
 
 ticket.txt
 *.komodo*
 ignore/*
-public/assets/*
+rails/public/assets/*
+rails/config/database.yml
