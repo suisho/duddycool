@@ -54,3 +54,5 @@ gem "twitter-bootstrap-rails"
 
 gem "oauth-plugin", ">= 0.4.0.pre1"
 
+gem "devise"
+gem "omniauth-twitter"

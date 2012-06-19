@@ -1,4 +1,6 @@
 Duddycool::Application.routes.draw do
+  devise_for :users
+
   resources :copipes
 
   # The priority is based upon order of creation:
