@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "CopipAA" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "世界のAA" %></title>
     <%= csrf_meta_tags %>
-    <meta name="description" content="コピペ・AA共有サイト">
+    <meta name="description" content="AA共有サイト">
     <meta name="keywords" content="コピペ,2ch,２ちゃん,2ちゃんねる,まとめ,AA,アスキーアート">
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -44,7 +44,15 @@
             </ul>
             <ul style="float: right;" class="nav">
               <li>
-                <%= link_to "ログイン", user_omniauth_authorize_path(:twitter) %>
+                <% if current_user %>
+                  <a>
+                    <%= current_user.name %>
+                  </a>
+                <% else %>
+                  <a href="/auth/twitter">
+                    l(:login)
+                  </a>
+                <% end %>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -57,14 +65,20 @@
         <a class="brand" href="/" >世界のAA</a>
         <small class="sub" >AA投稿共有サイト</small>
       </h1>
-      <small>CopipAA は自由にコピペやAAを投稿できるサイトです。(試験中)</small>
+      <small>世界のAAは自由にコピペやAAを投稿できるサイトです。(とても試験中)</small>
       <div class="content">
         <div class="row">
            <div class="span10">
-              <!--
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-              -->
+            <% if notice %>
+              <div class="alert alert-success">
+                <%= t :notice %>
+              </div>
+            <% end %>
+            <% if alert %>
+              <div class="alert alert-success">
+                <%= t :alert %>
+              </div>
+            <% end %>
               <%= yield %>
             </div>
             <div class="span2">
