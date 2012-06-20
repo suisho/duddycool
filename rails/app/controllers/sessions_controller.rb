@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       user = User.create_with_omniauth( auth )
     end
     session[:user_id] = user.id
-    redirect_to :root, notice: "login"
+    redirect_to :root, notice: :login_complete
   end
 
   def logout

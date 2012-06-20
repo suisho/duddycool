@@ -4,8 +4,8 @@ class CopipesController < ApplicationController
   # GET /copipes.json
   def index
     @copipes = Copipe.find(:all, :order=> 'id desc')
-
     respond_to do |format|
+      
       format.html # index.html.erb
       format.json { render json: @copipes }
     end
@@ -56,7 +56,7 @@ class CopipesController < ApplicationController
       if @copipe.save
         # タグ投稿
         add_tags(@copipe.id, params[:tags])
-        format.html { redirect_to "/", notice: t(:create_complete)}
+        format.html { redirect_to "/", notice: (:create_complete)}
         format.json { render json: @copipe, status: :created, location: @copipe }
       else
         format.html { render action: "new" }
