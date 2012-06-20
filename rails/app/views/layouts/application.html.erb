@@ -50,7 +50,7 @@
                   </a>
                 <% else %>
                   <a href="/auth/twitter">
-                    l(:login)
+                    <%= t( :login) %>
                   </a>
                 <% end %>
               </li>
@@ -65,13 +65,13 @@
         <a class="brand" href="/" ><%= t(:service_title) %></a>
         <small class="sub" >AA投稿共有サイト</small>
       </h1>
-      <small><%= t(:service_title) %>は自由にコピペやAAを投稿できるサイトです。(とても試験中)</small>
+      <small><%= t(:service_title) %>は自由にコピペやAAを投稿できるサイトです。(試験中)</small>
       <div class="content">
         <div class="row">
            <div class="span10">
             <% if notice %>
               <div class="alert alert-success">
-                <%= t :notice %>
+                <%= :notice %>
               </div>
             <% end %>
             <% if alert %>
