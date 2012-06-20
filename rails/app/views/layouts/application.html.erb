@@ -37,13 +37,7 @@
     <div class="navbar ">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <!--a class="brand" href="/">CopipAA</a-->
-          <div class="container nav-collapse">
+          <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to "新規作成", "/copipes/new"  %></li>
               <li><%= link_to "一覧", "/copipes"  %></li>
@@ -74,6 +68,7 @@
               <%= yield %>
             </div>
             <div class="span2">
+              <%= link_to "新規作成", "/copipes/new" , :class=>"btn btn-success" %>
               <% if false %>
               <div class="well sidebar-nav">
                 <h3>Sidebar</h3>
