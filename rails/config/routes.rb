@@ -64,4 +64,5 @@ Duddycool::Application.routes.draw do
   match 'tags/:name' => 'tags#search'
   match 'copipes/txt/:id' => 'copipes#txt'
   match 'auth/:provider/callback', to: 'sessions#callback'
+  match 'logout' => 'sessions#logout'
 end
