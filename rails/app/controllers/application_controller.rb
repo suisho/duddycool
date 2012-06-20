@@ -5,11 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   def set_locale
-    request_env = request.env['HTTP_ACCEPT_LANGUAGE']
-    if request_env
-      I18n.locale = request_env.split(",").first
-    end
-
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def current_user

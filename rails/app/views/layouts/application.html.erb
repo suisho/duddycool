@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "世界のAA" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : t(:service_title) %></title>
     <%= csrf_meta_tags %>
     <meta name="description" content="AA共有サイト">
     <meta name="keywords" content="コピペ,2ch,２ちゃん,2ちゃんねる,まとめ,AA,アスキーアート">
@@ -62,10 +62,10 @@
 
     <div class="container">
       <h1>
-        <a class="brand" href="/" >世界のAA</a>
+        <a class="brand" href="/" ><%= t(:service_title) %></a>
         <small class="sub" >AA投稿共有サイト</small>
       </h1>
-      <small>世界のAAは自由にコピペやAAを投稿できるサイトです。(とても試験中)</small>
+      <small><%= t(:service_title) %>は自由にコピペやAAを投稿できるサイトです。(とても試験中)</small>
       <div class="content">
         <div class="row">
            <div class="span10">
