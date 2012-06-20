@@ -4,7 +4,7 @@ class Copipe < ActiveRecord::Base
   attr_protected :user_id
   has_many :copipe_tags
   has_many :tags, :through => :copipe_tags
-  has_one :user
+  belongs_to :user
   def anonymous?
     if self.user_id == 0
       return true
