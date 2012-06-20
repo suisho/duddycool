@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by_id( session[:user_id] )
   end
 
+  def login?
+    return current_user ? true : false
+  end
+
 end
