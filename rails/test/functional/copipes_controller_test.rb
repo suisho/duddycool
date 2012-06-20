@@ -3,6 +3,7 @@ require 'test_helper'
 class CopipesControllerTest < ActionController::TestCase
   setup do
     @copipe = copipes(:one)
+    @tagstring = tags(:one).name + " "+ tags(:two).name
   end
 
   test "should get index" do
@@ -18,10 +19,20 @@ class CopipesControllerTest < ActionController::TestCase
 
   test "should create copipe" do
     assert_difference('Copipe.count') do
-      post :create, copipe: { body: @copipe.body, title: @copipe.title, user_id: @copipe.user_id }
+      post :create, copipe: { body: @copipe.body, title: @copipe.title }
     end
 
-    assert_redirected_to copipe_path(assigns(:copipe))
+    assert_redirected_to :root
+  end
+
+  test "should create copipe with tags" do
+    assert_difference('Copipe.count') do
+      post :create,
+            copipe: { body: @copipe.body, title: @copipe.title},
+            tags: @tagstring
+    end
+
+    assert_redirected_to :root
   end
 
   test "should show copipe" do
@@ -29,21 +40,4 @@ class CopipesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @copipe
-    assert_response :success
-  end
-
-  test "should update copipe" do
-    put :update, id: @copipe, copipe: { body: @copipe.body, title: @copipe.title, user_id: @copipe.user_id }
-    assert_redirected_to copipe_path(assigns(:copipe))
-  end
-
-  test "should destroy copipe" do
-    assert_difference('Copipe.count', -1) do
-      delete :destroy, id: @copipe
-    end
-
-    assert_redirected_to copipes_path
-  end
 end

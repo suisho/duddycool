@@ -24,7 +24,7 @@
       <% if copipe.anonymous? %>
         <%= t(:anonymous) %>
       <% else %>
-        <%= copipe.user_id%>
+        <%= copipe.user.name %>
       <% end %>
     </div>
   </div>

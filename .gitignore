@@ -37,5 +37,6 @@ rails/tmp
 ticket.txt
 *.komodo*
 ignore/*
+memo/*
 rails/public/assets/*
 rails/config/database.yml

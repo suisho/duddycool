@@ -1,4 +1,5 @@
 Duddycool::Application.routes.draw do
+
   resources :copipes
 
   # The priority is based upon order of creation:
@@ -59,9 +60,8 @@ Duddycool::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'copipes#index'
 
-  match 'login' => 'login#index'
-  match 'login/oauth' => 'login#oauth'
-  match 'login/oauth_callback' => 'login#oauth_callback'
+
   match 'tags/:name' => 'tags#search'
   match 'copipes/txt/:id' => 'copipes#txt'
+  match 'auth/:provider/callback', to: 'sessions#callback'
 end

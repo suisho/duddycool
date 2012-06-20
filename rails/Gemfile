@@ -12,6 +12,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'mynyml-redgreen'
 end
 
 
@@ -54,3 +55,4 @@ gem "twitter-bootstrap-rails"
 
 gem "oauth-plugin", ">= 0.4.0.pre1"
 
+gem "omniauth-twitter"
