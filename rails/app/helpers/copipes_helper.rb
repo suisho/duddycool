@@ -1,4 +1,5 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+
 module CopipesHelper
   def format_article(text)
     # エスケープ
@@ -24,7 +25,12 @@ module CopipesHelper
 
   # 名前部分を特定する
   def extract_name(text)
-    /[1-9][0-9]{0,3}(\s)?(名前)?：(?<name>.+?)[\s　]?：?\s?[0-9\/]+\([月火水木金土日]\)\s[0-9:\.]+([\s[:alnum:]\/:]+)?/ =~ text
-    return name
+    
+    matches = /[1-9][0-9]{0,3}(\s)?(名前)?：(?<name>.+?)[\s　]?：?\s?[0-9\/]+\([月火水木金土日]\)\s[0-9:\.]+([\s[:alnum:]\/:]+)?/.match(text);
+    if defined?(matches["name"]) then
+      return matches["name"]
+    else
+      return nil
+    end
   end
 end
