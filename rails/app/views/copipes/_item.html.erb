@@ -1,12 +1,18 @@
 <div class="copipe">
   <div class="row">
     <div class="title span6">
+      No.<%= copipe.id %>
       <%= copipe.title %>
       &nbsp;
     </div>
-    <div class="span4 links">
-      <a href="/copipes/txt/<%= copipe.id %>">txt</a>
-      <!--a href="/copipe/rep/">twitter返信</a-->
+    <div class="span4 author">
+      posted by:
+      <% if copipe.anonymous? %>
+        <%= t(:anonymous) %>
+      <% else %>
+        <%= copipe.user.name %>
+      <% end %>
+
     </div>
   </div>
   <div class="well">
@@ -14,18 +20,17 @@
   </div>
   <div class="row">
     <div class="tags span6">
-      <% copipe.tags.each do |tag| %>
-        <%= link_to tag.name ,"/tags/"+u(tag.name) %>
+      <% if copipe.tags.count > 0 %>
+        <i class="icon-tags"></i>
+        <% copipe.tags.each do |tag| %>
+          </i><%= link_to tag.name ,"/tags/"+u(tag.name) %>
+        <% end %>
       <% end %>
       &nbsp;
     </div>
-    <div class="author span4">
-      posted by:
-      <% if copipe.anonymous? %>
-        <%= t(:anonymous) %>
-      <% else %>
-        <%= copipe.user.name %>
-      <% end %>
+    <div class="span4 links">
+      <i class="icon-file"></i><a href="/copipes/txt/<%= copipe.id %>">txt</a>
+      <!--<i class="icon-share-alt"></i><a href="/replay/copipes">返信する</a>-->
     </div>
   </div>
 </div>
