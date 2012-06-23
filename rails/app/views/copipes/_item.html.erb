@@ -21,9 +21,10 @@
   <div class="row">
     <div class="tags span6">
       <% if copipe.tags.count > 0 %>
-        <i class="icon-tags"></i>
+
         <% copipe.tags.each do |tag| %>
-          </i><%= link_to tag.name ,"/tags/"+u(tag.name) %>
+          <i class="icon-tags"></i>
+          <%= link_to tag.name ,"/tags/"+u(tag.name) %>
         <% end %>
       <% end %>
       &nbsp;
